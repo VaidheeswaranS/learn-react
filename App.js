@@ -9,21 +9,19 @@ root.render(heading); // this will take the React Object and convert it to h1 ta
 */
 
 // example - 2
-const parent = React.createElement(
-  "div",
-  { id: "parent" },
-  [ React.createElement("div", { id: "child" }, [
-      React.createElement("h1", {}, "I'm a h1 tag from child"),
-      React.createElement("h2", {}, "I'm a h2 tag from child")
-    ]),
-    React.createElement("div", { id: "child2" }, [
-      React.createElement("h1", {}, "I'm a h1 tag from child2"),
-      React.createElement("h2", {}, "I'm a h2 tag from child2")
-    ])
-  ]);
+const parent = React.createElement("div", { id: "parent" }, [
+  React.createElement("div", { id: "child" }, [
+    React.createElement("h1", {}, "I'm a h1 tag from child"),
+    React.createElement("h2", {}, "I'm a h2 tag from child"),
+  ]),
+  React.createElement("div", { id: "child2" }, [
+    React.createElement("h1", {}, "I'm a h1 tag from child2"),
+    React.createElement("h2", {}, "I'm a h2 tag from child2"),
+  ]),
+]);
 
 console.log(parent);
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(parent);
