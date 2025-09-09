@@ -1,0 +1,56 @@
+﻿# Setting Up a Node.js Application from Scratch
+
+This guide outlines the steps to initialize a Node.js application, focusing on creating and managing the `package.json` file, understanding dependencies, and using Parcel for bundling. It also covers best practices for version control with Git.
+
+## Initializing the Project
+
+1. **Run `npm init`**  
+   Execute `npm init` in your terminal to create a `package.json` file. This command prompts you to answer questions about your project, such as its name, version, and description. Once completed, the `package.json` file is generated, serving as the central configuration file for your project.
+
+2. **Understanding `package.json`**  
+   The `package.json` file contains essential metadata about your project, including:
+   - Project details (name, version, description, etc.).
+   - **Dependencies**: Packages required for the application to run in production.
+   - **Dev-dependencies**: Packages needed only during development (e.g., testing or bundling tools).
+
+## Managing Dependencies
+
+3. **Dependencies vs. Dev-Dependencies**  
+   - **Dependencies**: These are packages essential for your application to function in a production environment. They are listed under the `dependencies` section in `package.json`.
+   - **Dev-dependencies**: These are packages used during development, such as build tools or testing frameworks, and are listed under the `devDependencies` section.
+
+4. **Versioning in `package.json`**  
+   Package versions in `package.json` are prefixed with symbols to control upgrades:
+   - **`^`**: Allows updates to patch and minor versions (e.g., `^1.2.3` can update to `1.3.0` but not `2.0.0`). This is safer and commonly used.
+   - **`~`**: Restricts updates to patch versions only (e.g., `~1.2.3` can update to `1.2.4` but not `1.3.0`). This is more restrictive than `^`.
+
+## Bundling with Parcel
+
+5. **Installing Parcel**  
+   Use Parcel as the bundler for your application. Install it as a dev-dependency by running:
+   ```bash
+   npm install -D parcel
+
+   The `-D` flag ensures Parcel is added to the `devDependencies` section in `package.json`.
+
+6. **Generated Files**  
+After installing Parcel:
+- A `node_modules` folder is created, containing Parcel and its dependencies.
+- A `package-lock.json` file is generated, locking the exact versions of all dependencies and their sub-dependencies for consistency.
+
+7. **Understanding `package-lock.json`**  
+The `package-lock.json` file ensures consistent installations by specifying exact versions of all dependencies, including those required by Parcel. Unlike `package.json`, which may use `^` or `~` for flexible versioning, `package-lock.json` locks versions to prevent unexpected changes.
+
+8. **Version Updates**  
+When you upgrade a package:
+- The version in `package.json` remains unchanged (e.g., `^1.2.3`).
+- The exact version installed is updated in `package-lock.json` (e.g., `1.2.4`).
+
+## Version Control Best Practices
+
+9. **Committing Files to Git**  
+- **DO PUSH**:
+  - `package.json`: Contains project metadata and dependency declarations.
+  - `package-lock.json`: Ensures consistent dependency versions across environments.
+- **DO NOT PUSH**:
+  - `node_modules`: This folder can be regenerated using `npm install`, so it should not be included in version control to reduce repository size.
