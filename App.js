@@ -18,10 +18,10 @@ const parent = React.createElement("div", { id: "parent" }, [
     React.createElement("h1", {}, "I'm a h1 tag from child2"),
     React.createElement("h2", {}, "I'm a h2 tag from child2"),
   ]),
-]);
+]);   // this returns a React Object
 
-console.log(parent);
+console.log(parent); // the output will be the Object that contains props, children etc..
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById("root")); // here we are telling React that under which it needs to place the content
 
-root.render(parent);
+root.render(parent); // this will take the React object that was returned and convert it into HTML and place it in the place we mentioned above
