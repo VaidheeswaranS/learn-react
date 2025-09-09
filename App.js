@@ -1,30 +1,17 @@
-﻿// example - 1
-/*
-const heading = React.createElement('h1', {
-  id: 'heading'
-}, 'Hello world from React'); // this returns a React Object
-console.log(heading);
-const root = ReactDOM.createRoot(document.getElementById('root')); // here we are telling React that under which it needs to place the content
-root.render(heading); // this will take the React Object and convert it to h1 tag (mentioned above) and put it in the webpage
-*/
-
-// example - 2
+﻿// example - 2
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const parent = React.createElement("div", { id: "parent" }, [
-  React.createElement("div", { id: "child" }, [
-    React.createElement("h1", {}, "This is Namaste React 🚀"),
-    React.createElement("h2", {}, "I'm a h2 tag from child"),
-  ]),
-  React.createElement("div", { id: "child2" }, [
-    React.createElement("h1", {}, "I'm a h1 tag from child2"),
-    React.createElement("h2", {}, "I'm a h2 tag from child2"),
-  ]),
-]);   // this returns a React Object
+// creating <h1> using Core React
+const heading = React.createElement('h1', { id: 'heading' }, 'Namaste React 🚀'); // this rertuns a React Object
 
-console.log(parent); // the output will be the Object that contains props, children etc..
+// create <h1> using JSX
+// JSX - it is HTML like or XML like syntax
+// Babel is a package that transpiles the JSX code and convert it into React code
+const jsxheading = <h1 id="heading" className="heading h1">Namaste React using JSX 🚀</h1> // this returns a React Object
+
+console.log(jsxheading); // the output will be the Object that contains props, children etc..
 
 const root = ReactDOM.createRoot(document.getElementById("root")); // here we are telling React that under which it needs to place the content
 
-root.render(parent); // this will take the React object that was returned and convert it into HTML and place it in the place we mentioned above
+root.render(jsxheading); // this will take the React object that was returned and convert it into HTML and place it in the place we mentioned above 

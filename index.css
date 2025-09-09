@@ -1,12 +1,3 @@
 ﻿#heading {
   color: red;
 }
-
-#parent {
-  color: green;
-}
-
-#child,
-#child2 {
-  color: purple;
-}
