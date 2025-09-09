@@ -1,0 +1,27 @@
+{
+  "name": "learn-react",
+  "version": "1.0.0",
+  "description": "this is learn react package",
+  "keywords": [
+    "react",
+    "learn-react"
+  ],
+  "homepage": "https://github.com/VaidheeswaranS/learn-react#readme",
+  "bugs": {
+    "url": "https://github.com/VaidheeswaranS/learn-react/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VaidheeswaranS/learn-react.git"
+  },
+  "license": "ISC",
+  "author": "VaidheeswaranS",
+  "type": "module",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "parcel": "^2.15.4"
+  }
+}
