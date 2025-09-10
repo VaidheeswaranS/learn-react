@@ -45,4 +45,4 @@ const heading = (
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(heading); // rendering functional component
+root.render(heading);
