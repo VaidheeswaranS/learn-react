@@ -4,7 +4,9 @@ import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer.js";
 
 const Body = () => {
-  const [originalListOfRestaurants, setOriginalListOfRestaurants] = useState([]);
+  const [originalListOfRestaurants, setOriginalListOfRestaurants] = useState(
+    []
+  );
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
 
@@ -30,23 +32,23 @@ const Body = () => {
     return currentList.filter((res) =>
       res.info.name.toLowerCase().includes(searchText.toLowerCase())
     );
-  }
+  };
 
   // Apply filter based on the ratings
   const applyRatingsFilter = (currentList) => {
     return currentList.filter((res) => res.info.avgRating >= 4.5);
-  }
+  };
 
   // Apply filter based on the delivery time
   const applyDeliveryTimeFiler = (currentList) => {
     return currentList.filter((res) => res.info.sla.deliveryTime < 25);
-  }
+  };
 
   // clear the filters
   const clearFilters = () => {
     setSearchText("");
     setFilteredRestaurant(originalListOfRestaurants);
-  }
+  };
 
   // Conditional Rendering
   return originalListOfRestaurants.length === 0 ? (
@@ -74,10 +76,7 @@ const Body = () => {
         </button>
       </div>
       <div className="filter-container">
-        <button
-          className="clear-filter-button"
-          onClick={clearFilters}
-        >
+        <button className="clear-filter-button" onClick={clearFilters}>
           Clear filter
         </button>
         <button
