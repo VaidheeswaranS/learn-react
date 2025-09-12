@@ -1,4 +1,4 @@
-﻿import { RESTAURANT_LIST } from "../utils/constants";
+﻿import { RESTAURANT_IMAGE } from "../utils/constants";
 
 const RestaurantCard = (props) => {
   const { resData } = props ;
@@ -7,7 +7,7 @@ const RestaurantCard = (props) => {
   return (
     <div className="res-card">
       <div className="image-container">
-        <img alt="res-logo" className="res-logo" src={RESTAURANT_LIST + cloudinaryImageId} />
+        <img alt="res-logo" className="res-logo" src={RESTAURANT_IMAGE + cloudinaryImageId} />
       </div>
       <div className="name-container">
         <p className="name">{name}</p>

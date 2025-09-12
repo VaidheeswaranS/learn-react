@@ -1,4 +1,10 @@
-﻿const resList = [
+﻿/**
+ * This file was created to have the mock data that was sent from the backend
+ * This is no longer used as we use `fetch` to get the data live from the backend
+ * This is now kept for some reference in the future
+ */
+
+const resList = [
   {
     "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
     info: {

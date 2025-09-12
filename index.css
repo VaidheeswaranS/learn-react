@@ -35,6 +35,19 @@
   padding: 0 20px;
 }
 
+.shimmer-search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  height: 40px;
+  border-radius: 15px;
+  margin: 20px auto;
+  padding: 0 20px;
+  background-color: #f0f0f0;
+}
+
 .search-bar {
   width: 100%;
   padding: 10px 15px;
@@ -75,6 +88,14 @@
   margin-bottom: 8px;
 }
 
+.shimmer-filter-container {
+  margin-left: 10px;
+  margin-bottom: 8px;
+  width: 200px;
+  height: 30px;
+  background-color: #f0f0f0;
+}
+
 .ratings-filter-button,
 .delivery-time-filter-button,
 .clear-filter-button {
@@ -94,7 +115,9 @@
 }
 
 .res-container {
+  margin-left: 10px;
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
 }
 
@@ -103,6 +126,20 @@
   flex-direction: column;
   width: 200px;
   padding: 10px;
+}
+
+.shimmer-container {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.shimmer-card {
+  width: 200px;
+  height: 300px;
+  margin-right: 15px;
+  background-color: #f0f0f0;
 }
 
 .res-card:hover {

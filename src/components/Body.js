@@ -1,10 +1,25 @@
 ﻿import RestaurantCard from "./RestaurantCard.js";
-import resList from "../utils/mockData.js";
-import { SEARCH_ICON } from "../utils/constants.js";
-import { useState } from "react";
+import { SEARCH_ICON, RESTAURANT_LIST_API } from "../utils/constants.js";
+import { useEffect, useState } from "react";
+import Shimmer from "./Shimmer.js";
 
 const Body = () => {
-  const [listOfRestaurants, setListOfRestaurants] = useState(resList);
+  const [listOfRestaurants, setListOfRestaurants] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const data = await fetch(RESTAURANT_LIST_API);
+    const json = await data.json();
+    // doing optional chaining to handle run time errors and null values
+    setListOfRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+  }
+
+  if (listOfRestaurants.length === 0) {
+    return <Shimmer />;
+  }
 
   return (
     <div className="main">
