@@ -37,8 +37,7 @@ const Body = () => {
         <button
           className="clear-filter-button"
           onClick={() => {
-            const clearFilteredList = resList
-            setListOfRestaurants(clearFilteredList);
+            fetchData();
           }}
         >
           Clear filter
