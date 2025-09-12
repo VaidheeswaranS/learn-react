@@ -70,6 +70,29 @@
   object-fit: contain;
 }
 
+.filter-container {
+  margin-left: 10px;
+  margin-bottom: 8px;
+}
+
+.ratings-filter-button,
+.delivery-time-filter-button,
+.clear-filter-button {
+  margin-right: 10px;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #f0f0f0;
+  transition: background-color 0.3s ease;
+}
+
+.ratings-filter-button:active,
+.delivery-time-filter-button:active {
+  background-color: #4caf50;
+  color: white;
+}
+
 .res-container {
   display: flex;
   flex-wrap: wrap;
