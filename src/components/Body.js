@@ -4,23 +4,52 @@ import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer.js";
 
 const Body = () => {
-  const [listOfRestaurants, setListOfRestaurants] = useState([]);
+  const [originalListOfRestaurants, setOriginalListOfRestaurants] = useState([]);
+  const [filteredRestaurant, setFilteredRestaurant] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
-    fetchData();
+    getRestaurantsList();
   }, []);
 
-  const fetchData = async () => {
+  const getRestaurantsList = async () => {
     const data = await fetch(RESTAURANT_LIST_API);
     const json = await data.json();
+
     // doing optional chaining to handle run time errors and null values
-    setListOfRestaurants(
+    setOriginalListOfRestaurants(
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+    setFilteredRestaurant(
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
 
+  // Apply search
+  const applySearch = (currentList) => {
+    return currentList.filter((res) =>
+      res.info.name.toLowerCase().includes(searchText.toLowerCase())
+    );
+  }
+
+  // Apply filter based on the ratings
+  const applyRatingsFilter = (currentList) => {
+    return currentList.filter((res) => res.info.avgRating >= 4.5);
+  }
+
+  // Apply filter based on the delivery time
+  const applyDeliveryTimeFiler = (currentList) => {
+    return currentList.filter((res) => res.info.sla.deliveryTime < 25);
+  }
+
+  // clear the filters
+  const clearFilters = () => {
+    setSearchText("");
+    setFilteredRestaurant(originalListOfRestaurants);
+  }
+
   // Conditional Rendering
-  return listOfRestaurants.length === 0 ? (
+  return originalListOfRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="main">
@@ -29,27 +58,33 @@ const Body = () => {
           className="search-bar"
           type="text"
           placeholder="Search for restaurant, item or more"
+          value={searchText}
+          onChange={(event) => {
+            setSearchText(event.target.value);
+          }}
         ></input>
-        <button className="search-button">
+        <button
+          className="search-button"
+          onClick={() => {
+            const newFiltered = applySearch(originalListOfRestaurants);
+            setFilteredRestaurant(newFiltered);
+          }}
+        >
           <img className="search-icon" src={SEARCH_ICON}></img>
         </button>
       </div>
       <div className="filter-container">
         <button
           className="clear-filter-button"
-          onClick={() => {
-            fetchData();
-          }}
+          onClick={clearFilters}
         >
           Clear filter
         </button>
         <button
           className="ratings-filter-button"
           onClick={() => {
-            const ratingsFilteredList = listOfRestaurants.filter(
-              (res) => res.info.avgRating >= 4.5
-            );
-            setListOfRestaurants(ratingsFilteredList);
+            const newFiltered = applyRatingsFilter(filteredRestaurant);
+            setFilteredRestaurant(newFiltered);
           }}
         >
           Ratings 4.5+
@@ -57,17 +92,15 @@ const Body = () => {
         <button
           className="delivery-time-filter-button"
           onClick={() => {
-            const delTimeFilteredList = listOfRestaurants.filter(
-              (res) => res.info.sla.deliveryTime < 25
-            );
-            setListOfRestaurants(delTimeFilteredList);
+            const newFiltered = applyDeliveryTimeFiler(filteredRestaurant);
+            setFilteredRestaurant(newFiltered);
           }}
         >
-          Delivery Time
+          Delivery Time &lt;25 min
         </button>
       </div>
       <div className="res-container">
-        {listOfRestaurants.map((restaurant) => (
+        {filteredRestaurant.map((restaurant) => (
           <RestaurantCard key={restaurant.info.id} resData={restaurant} />
         ))}
       </div>
