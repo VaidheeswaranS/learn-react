@@ -2,8 +2,8 @@
 
 const RestaurantCard = (props) => {
   const { resData } = props ;
-  const { cloudinaryImageId, name, cuisines, avgRating, costForTwo } = resData?.info
-  const { deliveryTime } = resData?.info.sla
+  const { cloudinaryImageId, name, cuisines, avgRating, costForTwo, sla } = resData?.info
+
   return (
     <div className="res-card">
       <div className="image-container">
@@ -15,7 +15,7 @@ const RestaurantCard = (props) => {
       </div>
       <div className="details-container">
         <p className="rating">{avgRating}</p>
-        <p className="delivery-time">{deliveryTime} mins</p>
+        <p className="delivery-time">{sla?.deliveryTime} mins</p>
         <p className="amount-for-two">{costForTwo}</p>
       </div>
     </div>
