@@ -14,6 +14,7 @@ const Body = () => {
     getRestaurantsList();
   }, []);
 
+  // getting the restaurant list from the API
   const getRestaurantsList = async () => {
     const data = await fetch(RESTAURANT_LIST_API);
     const json = await data.json();
