@@ -2,13 +2,10 @@
 import ReactDOM from "react-dom/client";
 import Header from "./components/Headers.js";
 import Body from "./components/Body.js";
-
-// creating <h1> using Core React
-const headingCore = React.createElement(
-  "h1",
-  { id: "heading" },
-  "Namaste React using Core React🚀"
-); // this returns a React Object
+import { createBrowserRouter, RouterProvider } from "react-router";
+import About from "./components/About.js";
+import Contact from "./components/Contact.js";
+import Error from "./components/Error.js";
 
 /**
  * Header
@@ -43,6 +40,22 @@ const AppLayout = () => {
   );
 }
 
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppLayout />,
+    errorElement: <Error />
+  },
+  {
+    path: "/about",
+    element: <About />
+  },
+  {
+    path: "/contact",
+    element: <Contact />
+  }
+])
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(<AppLayout />);
+root.render(<RouterProvider router={appRouter} />);
