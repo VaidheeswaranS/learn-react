@@ -1,4 +1,4 @@
-﻿export const APP_LOGO = 'https://penji.co/wp-content/uploads/2022/08/6.-waiter.com-logo.jpg.webp';
+﻿export const APP_LOGO = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHz0pBJ5cfmgkzz7M1G6fdA6eYr-f5qn5CEg&s';
 
 /**
  * This might change in future. Go to swiggy.com to get the latest API endpoint

@@ -7,11 +7,31 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid black;
+  background-color: #ec310d;
+  border-bottom: 1px solid white;
+  color: white;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100px;
+}
+
+.app-logo {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.app-name {
+  font-size: 24px;
 }
 
 .middle-text-container {
-  font-size: 24px;
+  font-size: 18px;
+  margin-left: 200px;
 }
 
 .nav-items-container {
@@ -29,16 +49,22 @@
   cursor: pointer;
 }
 
+.nav-items-container a {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-items-container a:hover {
+  text-decoration: underline;
+}
+
 .login-logout-button {
-  background-color: white;
+  background-color: #ec310d;
+  color: white;
   border: none;
   padding: 10px;
   font-size: 18px;
   cursor: pointer;
-}
-
-.app-logo {
-  width: 120px;
 }
 
 .search-container {
