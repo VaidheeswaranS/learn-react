@@ -2,11 +2,10 @@
 import { SEARCH_ICON, RESTAURANT_LIST_API } from "../utils/constants.js";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer.js";
+import { Link } from "react-router";
 
 const Body = () => {
-  const [originalListOfRestaurants, setOriginalListOfRestaurants] = useState(
-    []
-  );
+  const [originalListOfRestaurants, setOriginalListOfRestaurants] = useState([]);
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
 
@@ -99,9 +98,12 @@ const Body = () => {
           Delivery Time &lt;25 min
         </button>
       </div>
+      <div className="res-container-heading">
+        Top Restaurants in Chennai
+      </div>
       <div className="res-container">
         {filteredRestaurant.map((restaurant) => (
-          <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+          <Link key={restaurant.info.id} to={"/restaurants/" + restaurant.info.id}><RestaurantCard resData={restaurant} /></Link>
         ))}
       </div>
     </div>

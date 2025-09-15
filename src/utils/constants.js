@@ -8,4 +8,8 @@ export const RESTAURANT_LIST_API = 'https://www.swiggy.com/dapi/restaurants/list
 
 export const RESTAURANT_IMAGE = 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/';
 
+export const RESTAURANT_MENU_IMAGE = 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/';
+
+export const RESTAURANT_MENU_API = 'https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=13.0066625&lng=80.2206369&restaurantId=';
+
 export const SEARCH_ICON = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp-GnQ-qnGAG90kmtY6R_n_uo3YU8eUnmF4Q&s';
