@@ -372,8 +372,14 @@
 }
 
 .item-image {
-  width: 100px;
+  width: 140px;
   height: 100px;
   height: auto;
   object-fit: contain;
+}
+
+.user-card {
+  padding: 10px;
+  border: 1px solid black;
+  margin-bottom: 10px;
 }
