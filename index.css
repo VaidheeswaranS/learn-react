@@ -41,6 +41,7 @@
 .nav-items-container > ul {
   display: flex;
   list-style-type: none;
+  align-items: center;
 }
 
 .nav-items-container > ul > li {
