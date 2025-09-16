@@ -3,8 +3,7 @@ import { RESTAURANT_MENU_IMAGE } from "../utils/constants";
 import { useParams } from "react-router";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 
-export const RestaurantMenu = () => {
-
+const RestaurantMenu = () => {
   const { resId } = useParams();
   const restaurantDetails = useRestaurantMenu(resId);
 
@@ -73,3 +72,5 @@ export const RestaurantMenu = () => {
     </div>
   );
 };
+
+export default RestaurantMenu ;

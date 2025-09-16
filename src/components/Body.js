@@ -40,7 +40,7 @@ const Body = () => {
 
   // Apply filter based on the delivery time
   const applyDeliveryTimeFiler = (currentList) => {
-    return currentList.filter((res) => res.info.sla.deliveryTime < 25);
+    return currentList.filter((res) => res.info.sla.deliveryTime < 30);
   };
 
   // clear the filters
@@ -102,7 +102,7 @@ const Body = () => {
             setFilteredRestaurant(newFiltered);
           }}
         >
-          Delivery Time &lt;25 min
+          Delivery Time &lt;30 min
         </button>
       </div>
       <div className="res-container-heading">
