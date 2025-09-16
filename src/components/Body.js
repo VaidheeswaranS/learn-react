@@ -3,6 +3,7 @@ import { SEARCH_ICON, RESTAURANT_LIST_API } from "../utils/constants.js";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer.js";
 import { Link } from "react-router";
+import useOnlineStatus from "../utils/useOnlineStatus.js";
 
 const Body = () => {
   const [originalListOfRestaurants, setOriginalListOfRestaurants] = useState([]);
@@ -13,12 +14,10 @@ const Body = () => {
     getRestaurantsList();
   }, []);
 
-  // getting the restaurant list from the API
   const getRestaurantsList = async () => {
     const data = await fetch(RESTAURANT_LIST_API);
     const json = await data.json();
 
-    // doing optional chaining to handle run time errors and null values
     setOriginalListOfRestaurants(
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
@@ -49,6 +48,14 @@ const Body = () => {
     setSearchText("");
     setFilteredRestaurant(originalListOfRestaurants);
   };
+
+  const onlineStatus = useOnlineStatus();
+
+  if (onlineStatus === false ) {
+    return (
+      <h1>Looks like you're offline. Please check your Internet connection</h1>
+    );
+  }
 
   // Conditional Rendering
   return originalListOfRestaurants.length === 0 ? (
