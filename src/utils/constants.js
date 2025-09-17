@@ -15,5 +15,3 @@ export const RESTAURANT_MENU_IMAGE = 'https://media-assets.swiggy.com/swiggy/ima
  * Go inside the restaurants under the title 'Top restaurant chains in Chennai' and then check for API response in network tab
  */
 export const RESTAURANT_MENU_API = 'https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=13.0066625&lng=80.2206369&restaurantId=';
-
-export const SEARCH_ICON = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp-GnQ-qnGAG90kmtY6R_n_uo3YU8eUnmF4Q&s';

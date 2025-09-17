@@ -9,7 +9,7 @@ const Header = () => {
   const onlineStatus = useOnlineStatus();
 
   return (
-    <div className="flex justify-between items-center border-b-2 border-b-cyan-700 bg-emerald-100">
+    <div className="flex justify-between items-center h-15 border-b-2 border-b-cyan-700 bg-emerald-100">
       <div className="flex items-center ml-2">
         <img className="w-9" src={APP_LOGO} />
         <div className="font-bold text-rose-800 text-2xl ml-4">LocateEats</div>

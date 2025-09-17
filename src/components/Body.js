@@ -1,5 +1,5 @@
 ﻿import RestaurantCard from "./RestaurantCard.js";
-import { SEARCH_ICON, RESTAURANT_LIST_API } from "../utils/constants.js";
+import { RESTAURANT_LIST_API } from "../utils/constants.js";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer.js";
 import { Link } from "react-router";
@@ -62,10 +62,10 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="main">
-      <div className="search-container">
+      <div className="flex items-center justify-center my-15 mx-auto w-full">
         <input
-          className="search-bar"
-          type="text"
+          className="w-86 px-4 py-2 text-sm box-border rounded-l-lg bg-white shadow-2xl border border-gray-600 border-r-0 text-black"
+          type="search"
           placeholder="Search for restaurant, item or more"
           value={searchText}
           onChange={(event) => {
@@ -73,21 +73,21 @@ const Body = () => {
           }}
         ></input>
         <button
-          className="search-button"
+          className="w-26 px-4 py-2 text-sm box-border border border-gray-600 font-semibold bg-red-800 rounded-r-lg text-white cursor-pointer outline-none"
           onClick={() => {
             const newFiltered = applySearch(originalListOfRestaurants);
             setFilteredRestaurant(newFiltered);
           }}
         >
-          <img className="search-icon" src={SEARCH_ICON}></img>
+          Search
         </button>
       </div>
-      <div className="filter-container">
-        <button className="clear-filter-button" onClick={clearFilters}>
+      <div className="ml-5 mb-2.5">
+        <button className="mr-2.5 p-2 border-none rounded-lg cursor-pointer bg-gray-300 text-sm text-black" onClick={clearFilters}>
           Clear filter
         </button>
         <button
-          className="ratings-filter-button"
+          className="mr-2.5 p-2 border-none rounded-lg cursor-pointer bg-gray-300 text-sm text-black active:bg-green-400 transition duration-300 ease-in-out"
           onClick={() => {
             const newFiltered = applyRatingsFilter(filteredRestaurant);
             setFilteredRestaurant(newFiltered);
@@ -96,7 +96,7 @@ const Body = () => {
           Ratings 4.5+
         </button>
         <button
-          className="delivery-time-filter-button"
+          className="mr-2.5 p-2 border-none rounded-lg cursor-pointer bg-gray-300 text-sm text-black active:bg-green-500 transition duration-300 ease-in-out"
           onClick={() => {
             const newFiltered = applyDeliveryTimeFiler(filteredRestaurant);
             setFilteredRestaurant(newFiltered);
@@ -105,10 +105,10 @@ const Body = () => {
           Delivery Time &lt;30 min
         </button>
       </div>
-      <div className="res-container-heading">
+      <div className="ml-5 mb-2 text-2xl font-bold">
         Top Restaurants in Chennai
       </div>
-      <div className="res-container">
+      <div className="ml-2.5 flex flex-wrap">
         {filteredRestaurant.map((restaurant) => (
           <Link key={restaurant.info.id} to={"/restaurants/" + restaurant.info.id}><RestaurantCard resData={restaurant} /></Link>
         ))}
