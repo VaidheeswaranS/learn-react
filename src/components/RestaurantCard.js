@@ -5,18 +5,21 @@ const RestaurantCard = (props) => {
   const { cloudinaryImageId, name, cuisines, avgRating, costForTwo, sla } = resData?.info
 
   return (
-    <div className="res-card">
+    /**
+     * need to check later (ml-2.5 flex-col flex-wrap w-52 p-2.5)
+     */
+    <div className="ml-2.5 mb-2.5 flex-col flex-wrap w-52 p-3.5 rounded-lg cursor-pointer">
       <div className="image-container">
-        <img alt="res-logo" className="res-logo" src={RESTAURANT_IMAGE + cloudinaryImageId} />
+        <img alt="res-logo" className="h-48 w-48 mb-2" src={RESTAURANT_IMAGE + cloudinaryImageId} />
       </div>
       <div className="name-container">
-        <p className="name">{name}</p>
-        <p className="cuisine">{cuisines.join(", ")}</p>
+        <p className="mt-0 font-bold text-base/5 mb-2">{name}</p>
+        <p className="mt-0 text-sm mb-2 text-gray-500">{cuisines.join(", ")}</p>
       </div>
-      <div className="details-container">
-        <p className="rating">{avgRating}</p>
-        <p className="delivery-time">{sla?.deliveryTime} mins</p>
-        <p className="amount-for-two">{costForTwo}</p>
+      <div className="flex items-center justify-around text-xs">
+        <p className="border-none bg-green-500 text-black py-1 px-2">{avgRating}</p>
+        <p className="py-1 px-2">{sla?.deliveryTime} mins</p>
+        <p className="py-1 px-1">{costForTwo}</p>
       </div>
     </div>
   );
