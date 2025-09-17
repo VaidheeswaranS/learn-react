@@ -32,4 +32,17 @@ const RestaurantCard = (props) => {
   );
 };
 
+export const isRestaurantOnline = (RestaurantCard) => {
+  return (props) => {
+    return (
+      <div>
+        <label className="p-1.5 m-1 absolute bg-black text-white">
+          Offline
+        </label>
+        <RestaurantCard {...props} />
+      </div>
+    );
+  };
+};
+
 export default RestaurantCard;

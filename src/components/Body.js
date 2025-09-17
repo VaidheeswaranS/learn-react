@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer.js";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus.js";
+import { isRestaurantOnline } from "./RestaurantCard.js";
 
 const Body = () => {
   const [originalListOfRestaurants, setOriginalListOfRestaurants] = useState(
@@ -11,6 +12,10 @@ const Body = () => {
   );
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
+
+  const RestaurantOnline = isRestaurantOnline(RestaurantCard);
+
+  console.log(originalListOfRestaurants);
 
   useEffect(() => {
     getRestaurantsList();
@@ -119,7 +124,12 @@ const Body = () => {
             key={restaurant.info.id}
             to={"/restaurants/" + restaurant.info.id}
           >
-            <RestaurantCard resData={restaurant} />
+            {restaurant.info.isOpen ? (
+              <RestaurantCard resData={restaurant} />
+            ) : (
+              <RestaurantOnline resData={restaurant} />
+            )}
+            {/* <RestaurantCard resData={restaurant} /> */}
           </Link>
         ))}
       </div>
