@@ -33,6 +33,8 @@ const Body = () => {
     );
   };
 
+  console.log(filteredRestaurant);
+
   // Apply search
   const applySearch = (currentList) => {
     return currentList.filter((res) =>
@@ -129,7 +131,6 @@ const Body = () => {
             ) : (
               <RestaurantOnline resData={restaurant} />
             )}
-            {/* <RestaurantCard resData={restaurant} /> */}
           </Link>
         ))}
       </div>
