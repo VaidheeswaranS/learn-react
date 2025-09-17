@@ -6,7 +6,9 @@ import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus.js";
 
 const Body = () => {
-  const [originalListOfRestaurants, setOriginalListOfRestaurants] = useState([]);
+  const [originalListOfRestaurants, setOriginalListOfRestaurants] = useState(
+    []
+  );
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
 
@@ -51,7 +53,7 @@ const Body = () => {
 
   const onlineStatus = useOnlineStatus();
 
-  if (onlineStatus === false ) {
+  if (onlineStatus === false) {
     return (
       <h1>Looks like you're offline. Please check your Internet connection</h1>
     );
@@ -83,7 +85,10 @@ const Body = () => {
         </button>
       </div>
       <div className="ml-5 mb-2.5">
-        <button className="mr-2.5 p-2 border-none rounded-lg cursor-pointer bg-gray-300 text-sm text-black" onClick={clearFilters}>
+        <button
+          className="mr-2.5 p-2 border-none rounded-lg cursor-pointer bg-gray-300 text-sm text-black"
+          onClick={clearFilters}
+        >
           Clear filter
         </button>
         <button
@@ -110,7 +115,12 @@ const Body = () => {
       </div>
       <div className="ml-2.5 flex flex-wrap">
         {filteredRestaurant.map((restaurant) => (
-          <Link key={restaurant.info.id} to={"/restaurants/" + restaurant.info.id}><RestaurantCard resData={restaurant} /></Link>
+          <Link
+            key={restaurant.info.id}
+            to={"/restaurants/" + restaurant.info.id}
+          >
+            <RestaurantCard resData={restaurant} />
+          </Link>
         ))}
       </div>
     </div>

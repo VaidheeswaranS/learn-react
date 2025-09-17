@@ -32,8 +32,12 @@ const RestaurantMenu = () => {
         <div className="text-[18px] font-bold mt-2.5 mb-1.5 mx-5">
           {avgRating} ({totalRatingsString}) &bull; {costForTwoMessage}
         </div>
-        <div className="text-[14px] text-orange-600 mt-2.5 mb-1.5 mx-5">{cuisines.join(", ")}</div>
-        <div className="text-[14px] font-bold mt-2.5 mb-1.5 mx-5">{areaName}</div>
+        <div className="text-[14px] text-orange-600 mt-2.5 mb-1.5 mx-5">
+          {cuisines.join(", ")}
+        </div>
+        <div className="text-[14px] font-bold mt-2.5 mb-1.5 mx-5">
+          {areaName}
+        </div>
         <div className="text-[14px] font-bold mx-5">
           {minDeliveryTime} - {maxDeliveryTime} mins
         </div>
@@ -41,11 +45,17 @@ const RestaurantMenu = () => {
       <div className="text-[20px] font-bold ml-[30px] mb-5">Recommended</div>
       <div className="flex flex-col ml-5">
         {itemCards.map((item) => (
-          <div className="flex flex-row justify-between mb-[30px] items-center" key={item?.card?.info?.id}>
+          <div
+            className="flex flex-row justify-between mb-[30px] items-center"
+            key={item?.card?.info?.id}
+          >
             <div className="flex flex-col">
-              <div className="text-[16px] font-bold mb-2 ml-2.5 text-gray-500">{item?.card?.info?.name}</div>
+              <div className="text-[16px] font-bold mb-2 ml-2.5 text-gray-500">
+                {item?.card?.info?.name}
+              </div>
               <div className="text-[14px] font-bold mb-2 ml-2.5">
-                ₹{item?.card?.info?.finalPrice / 100 ||
+                ₹
+                {item?.card?.info?.finalPrice / 100 ||
                   item?.card?.info?.price / 100 ||
                   item?.card?.info?.defaultPrice / 100}
               </div>
@@ -73,4 +83,4 @@ const RestaurantMenu = () => {
   );
 };
 
-export default RestaurantMenu ;
+export default RestaurantMenu;

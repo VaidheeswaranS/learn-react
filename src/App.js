@@ -41,7 +41,7 @@ const AppLayout = () => {
       <Outlet />
     </div>
   );
-}
+};
 
 const appRouter = createBrowserRouter([
   {
@@ -50,23 +50,31 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Body />
+        element: <Body />,
       },
       {
         path: "/about",
-        element: <Suspense fallback={<h2>Loading...</h2>}><About /></Suspense>
+        element: (
+          <Suspense fallback={<h2>Loading...</h2>}>
+            <About />
+          </Suspense>
+        ),
       },
       {
         path: "/contact",
-        element: <Suspense fallback={<h2>Loading...</h2>}><Contact /></Suspense>
+        element: (
+          <Suspense fallback={<h2>Loading...</h2>}>
+            <Contact />
+          </Suspense>
+        ),
       },
       {
         path: "/restaurants/:resId",
-        element: <RestaurantMenu />
-      }
+        element: <RestaurantMenu />,
+      },
     ],
-    errorElement: <Error />
-  }
+    errorElement: <Error />,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

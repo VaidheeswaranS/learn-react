@@ -14,9 +14,7 @@ const Header = () => {
         <img className="w-9" src={APP_LOGO} />
         <div className="font-bold text-rose-800 text-2xl ml-4">LocateEats</div>
       </div>
-      <div className="text-lg ml-36">
-        Hey there! Taste your delicious food.
-      </div>
+      <div className="text-lg ml-36">Hey there! Taste your delicious food.</div>
       <div className="mr-2">
         <ul className="flex items-center">
           <li className="p-2.5 text-lg">
@@ -24,7 +22,7 @@ const Header = () => {
           </li>
           <li className="p-2.5 text-lg">
             <Link to={"/"}>Home</Link>
-            </li>
+          </li>
           <li className="p-2.5 text-lg">
             <Link to={"/about"}>About Us</Link>
           </li>
