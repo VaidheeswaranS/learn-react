@@ -8,7 +8,7 @@ const RestaurantCard = (props) => {
     /**
      * need to check later (ml-2.5 flex-col flex-wrap w-52 p-2.5)
      */
-    <div className="ml-2.5 mb-2.5 flex-col flex-wrap w-52 p-3.5 rounded-lg cursor-pointer">
+    <div className="ml-2.5 mb-2.5 flex-col flex-wrap w-52 p-3.5 hover:border cursor-pointer">
       <div className="image-container">
         <img alt="res-logo" className="h-48 w-48 mb-2" src={RESTAURANT_IMAGE + cloudinaryImageId} />
       </div>
