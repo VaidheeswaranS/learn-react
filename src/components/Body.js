@@ -15,8 +15,6 @@ const Body = () => {
 
   const RestaurantOnline = isRestaurantOnline(RestaurantCard);
 
-  console.log(originalListOfRestaurants);
-
   useEffect(() => {
     getRestaurantsList();
   }, []);
@@ -32,8 +30,6 @@ const Body = () => {
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
-
-  console.log(filteredRestaurant);
 
   // Apply search
   const applySearch = (currentList) => {
@@ -79,6 +75,12 @@ const Body = () => {
           value={searchText}
           onChange={(event) => {
             setSearchText(event.target.value);
+          }}
+          onKeyDown={(event) => {
+            if (event.key === "Enter") {
+              const newFiltered = applySearch(originalListOfRestaurants);
+              setFilteredRestaurant(newFiltered);
+            }
           }}
         ></input>
         <button
