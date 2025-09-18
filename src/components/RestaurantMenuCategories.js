@@ -1,18 +1,8 @@
-﻿import { useState } from "react";
-import { RESTAURANT_MENU_IMAGE } from "../utils/constants";
+﻿import { RESTAURANT_MENU_IMAGE } from "../utils/constants";
 
-const RestaurantMenuCategories = (props) => {
-  const [showItems, setShowItems] = useState(false);
-  const [accordianCollapser, setAccordianCollapser] = useState("⬇️");
-
-  const { categoryHeading } = props;
-  const { title, itemCards } = categoryHeading;
-
+const RestaurantMenuCategories = ({ menuList, showItems, setShowIndex }) => {
   const menuListCollapser = () => {
-    setShowItems(!showItems);
-    accordianCollapser === "⬇️"
-      ? setAccordianCollapser("⬆️")
-      : setAccordianCollapser("⬇️");
+    setShowIndex();
   };
 
   return (
@@ -24,13 +14,13 @@ const RestaurantMenuCategories = (props) => {
         }}
       >
         <span className="text-[20px] font-bold ml-[30px] mb-5">
-          {title} ({itemCards.length})
+          {menuList.title} ({menuList.itemCards.length})
         </span>
-        <span className="text-[20px] font-bold mb-5">{accordianCollapser}</span>
+        <span className="text-[20px] font-bold mb-5">⬇️</span>
       </div>
       {showItems && (
         <div className="flex flex-col ml-5">
-          {itemCards.map((item) => (
+          {menuList.itemCards.map((item) => (
             <div
               className="flex flex-row justify-between mb-[30px] items-center border-b"
               key={item?.card?.info?.id}

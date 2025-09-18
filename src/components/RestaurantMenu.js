@@ -2,8 +2,11 @@
 import { useParams } from "react-router";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import RestaurantMenuCategories from "./RestaurantMenuCategories";
+import { useState } from "react";
 
 const RestaurantMenu = () => {
+  const [showIndex, setShowIndex] = useState(null);
+  
   const { resId } = useParams();
   const restaurantDetails = useRestaurantMenu(resId);
 
@@ -52,10 +55,12 @@ const RestaurantMenu = () => {
           {minDeliveryTime} - {maxDeliveryTime} mins
         </div>
       </div>
-      {categories.map((category) => (
+      {categories.map((category, index) => (
         <RestaurantMenuCategories
           key={category?.card?.card?.title}
-          categoryHeading={category?.card?.card}
+          menuList={category?.card?.card}
+          showItems={index === showIndex ? true : false}
+          setShowIndex={() => setShowIndex(index)}
         />
       ))}
     </div>
