@@ -3,14 +3,16 @@ import { RESTAURANT_MENU_IMAGE } from "../utils/constants";
 
 const RestaurantMenuCategories = (props) => {
   const [showItems, setShowItems] = useState(false);
-  const [accordianCollapser, setAccordianCollapser] = useState('⌄')
+  const [accordianCollapser, setAccordianCollapser] = useState("⬇️");
 
   const { categoryHeading } = props;
   const { title, itemCards } = categoryHeading;
 
   const menuListCollapser = () => {
     setShowItems(!showItems);
-    accordianCollapser === '⌄' ? setAccordianCollapser('⬆️') : setAccordianCollapser('⌄');
+    accordianCollapser === "⬇️"
+      ? setAccordianCollapser("⬆️")
+      : setAccordianCollapser("⬇️");
   };
 
   return (
