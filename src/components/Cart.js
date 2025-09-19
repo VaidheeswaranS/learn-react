@@ -38,6 +38,11 @@ const Cart = () => {
           Clear Cart
         </button>
       </div>
+      {cartItems.length === 0 && (
+        <div className="ml-[30px] my-2 text-lg text-black">
+          Cart is empty. Add items to the cart!
+        </div>
+      )}
       {cartItems.map((item, index) => (
         <div
           className="main-cart-items flex flex-col ml-[30px] my-2 shadow-lg w-[800px]"
