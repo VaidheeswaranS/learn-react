@@ -1,8 +1,26 @@
-﻿import { RESTAURANT_MENU_IMAGE } from "../utils/constants";
+﻿import { useDispatch } from "react-redux";
+import { RESTAURANT_MENU_IMAGE } from "../utils/constants";
+import { addItem } from "../utils/cartSlice";
+import { useState } from "react";
 
-const RestaurantMenuCategories = ({ menuList, showItems, setShowIndex }) => {
+const RestaurantMenuCategories = (props) => {
+  const [showItems, setShowItems] = useState(false);
+  const [accordianCollapser, setAccordianCollapser] = useState("⬇️");
+
+  const { menuList } = props;
+  const { title, itemCards } = menuList;
+
   const menuListCollapser = () => {
-    setShowIndex();
+    setShowItems(!showItems);
+    accordianCollapser === "⬇️"
+      ? setAccordianCollapser("⬆️")
+      : setAccordianCollapser("⬇️");
+  };
+
+  const dispatcher = useDispatch();
+
+  const addItemsToCart = () => {
+    dispatcher(addItem("pizza"));
   };
 
   return (
@@ -14,13 +32,13 @@ const RestaurantMenuCategories = ({ menuList, showItems, setShowIndex }) => {
         }}
       >
         <span className="text-[20px] font-bold ml-[30px] mb-5">
-          {menuList.title} ({menuList.itemCards.length})
+          {title} ({itemCards.length})
         </span>
-        <span className="text-[20px] font-bold mb-5">⬇️</span>
+        <span className="text-[20px] font-bold mb-5">{accordianCollapser}</span>
       </div>
       {showItems && (
         <div className="flex flex-col ml-5">
-          {menuList.itemCards.map((item) => (
+          {itemCards.map((item) => (
             <div
               className="flex flex-row justify-between mb-[30px] items-center border-b"
               key={item?.card?.info?.id}
@@ -54,7 +72,10 @@ const RestaurantMenuCategories = ({ menuList, showItems, setShowIndex }) => {
                   src={RESTAURANT_MENU_IMAGE + item?.card?.info?.imageId}
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <button className="px-5 py-1 border bg-white rounded-lg shadow-lg transform translate-y-2/2 cursor-pointer">
+                  <button
+                    className="px-5 py-1 border bg-white rounded-lg shadow-lg transform translate-y-2/2 cursor-pointer"
+                    onClick={addItemsToCart}
+                  >
                     ADD
                   </button>
                 </div>
