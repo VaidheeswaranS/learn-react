@@ -19,8 +19,8 @@ const RestaurantMenuCategories = (props) => {
 
   const dispatcher = useDispatch();
 
-  const addItemsToCart = () => {
-    dispatcher(addItem("pizza"));
+  const addItemsToCart = (item) => {
+    dispatcher(addItem(item));
   };
 
   return (
@@ -74,7 +74,7 @@ const RestaurantMenuCategories = (props) => {
                 <div className="absolute inset-0 flex items-center justify-center">
                   <button
                     className="px-5 py-1 border bg-white rounded-lg shadow-lg transform translate-y-2/2 cursor-pointer"
-                    onClick={addItemsToCart}
+                    onClick={() => addItemsToCart(item)}
                   >
                     ADD
                   </button>
