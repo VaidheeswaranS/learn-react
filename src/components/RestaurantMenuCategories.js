@@ -74,7 +74,9 @@ const RestaurantMenuCategories = (props) => {
                 <div className="absolute inset-0 flex items-center justify-center">
                   <button
                     className="px-5 py-1 border bg-white rounded-lg shadow-lg transform translate-y-2/2 cursor-pointer"
-                    onClick={() => addItemsToCart(item)}
+                    onClick={() => {
+                      addItemsToCart(item);
+                    }}
                   >
                     ADD
                   </button>
