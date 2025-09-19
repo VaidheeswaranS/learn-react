@@ -9,6 +9,7 @@ import { lazy, Suspense } from "react";
 import UserContext from "./utils/UserContext.js";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore.js";
+import Cart from "./components/Cart.js";
 
 /**
  * Header
@@ -82,6 +83,14 @@ const appRouter = createBrowserRouter([
         element: (
           <Suspense fallback={<h2>Loading...</h2>}>
             <Contact />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/cart",
+        element: (
+          <Suspense fallback={<h2>Loading the cart...</h2>}>
+            <Cart />
           </Suspense>
         ),
       },
