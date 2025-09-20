@@ -40,6 +40,7 @@ const RestaurantMenuCategories = (props) => {
         <div className="flex flex-col ml-5">
           {itemCards.map((item) => (
             <div
+              data-testid="foodItems"
               className="flex flex-row justify-between mb-[30px] items-center border-b"
               key={item?.card?.info?.id}
             >
