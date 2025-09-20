@@ -23,6 +23,13 @@
     "prod": "parcel build index.html"
   },
   "devDependencies": {
+    "@babel/core": "^7.28.4",
+    "@babel/preset-env": "^7.28.3",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/react": "^16.3.0",
+    "babel-jest": "^30.1.2",
+    "jest": "^30.1.3",
+    "jest-environment-jsdom": "^30.1.2",
     "parcel": "^2.15.4"
   },
   "dependencies": {
