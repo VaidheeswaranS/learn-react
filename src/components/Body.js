@@ -31,8 +31,6 @@ const Body = () => {
     );
   };
 
-  console.log(filteredRestaurant);
-
   // Apply search
   const applySearch = (currentList) => {
     return currentList.filter((res) =>
