@@ -1,5 +1,4 @@
 ﻿import User from "../components/User";
-import UserClass from "./UserClass";
 import useOnlineStatus from "../utils/useOnlineStatus";
 
 const About = () => {
@@ -17,10 +16,6 @@ const About = () => {
       <User
         name={"Vaidheeswaran Srinivasan - function"}
         location={"Chennai - function"}
-      />
-      <UserClass
-        name={"Vaidheeswaran Srinivasan - class"}
-        location={"Chennai - class"}
       />
     </div>
   );
