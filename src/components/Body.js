@@ -67,7 +67,7 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="main">
-      <div className="flex items-center justify-center my-15 mx-auto w-full">
+      <div className="flex items-center justify-center my-10 mx-auto w-full">
         <input
           className="w-86 px-4 py-2 text-sm box-border rounded-l-lg bg-white shadow-2xl border border-gray-600 border-r-0 text-black"
           type="search"
