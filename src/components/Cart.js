@@ -3,6 +3,7 @@ import { RESTAURANT_MENU_IMAGE } from "../utils/constants";
 import UserContext from "../utils/UserContext";
 import { useContext } from "react";
 import { clearCart, removeItem } from "../utils/cartSlice";
+import { Link } from "react-router";
 
 const Cart = () => {
   const { loggedInUser } = useContext(UserContext);
@@ -18,6 +19,17 @@ const Cart = () => {
 
   const emptyItemsFromCart = () => {
     dispatcher(clearCart());
+  };
+
+  const calculateTotal = () => {
+    return cartItems.reduce((acc, item) => {
+      const price =
+        (item?.card?.info?.finalPrice ||
+          item?.card?.info?.price ||
+          item?.card?.info?.defaultPrice) / 100;
+      // return (acc = acc + price);
+      return acc + price;
+    }, 0); // initial value of accumulator is 0
   };
 
   return (
@@ -76,6 +88,19 @@ const Cart = () => {
           </div>
         </div>
       ))}
+      {cartItems.length > 0 && (
+        <div className="total-container flex flex-row justify-between items-center h-[60px] w-[800px] bg-gray-300 px-3 py-3 ml-[30px]">
+          <div className="total-name px-3 text-lg font-semibold">
+            Total: ₹{calculateTotal().toFixed(2)}
+          </div>
+          <button
+            className="checkout-button mr-1 px-4 bg-red-900 text-white rounded-lg cursor-pointer"
+            onClick={() => emptyItemsFromCart()}
+          >
+            <Link to={"/thanks"}>Checkout</Link>
+          </button>
+        </div>
+      )}
     </div>
   );
 };

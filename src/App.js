@@ -10,6 +10,7 @@ import UserContext from "./utils/UserContext.js";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore.js";
 import Cart from "./components/Cart.js";
+import Thanks from "./components/Thanks.js";
 
 /**
  * Header
@@ -91,6 +92,14 @@ const appRouter = createBrowserRouter([
         element: (
           <Suspense fallback={<h2>Loading the cart...</h2>}>
             <Cart />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/thanks",
+        element: (
+          <Suspense fallback={<h2>Loading thanks page...</h2>}>
+            <Thanks />
           </Suspense>
         ),
       },
